@@ -1,16 +1,10 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Shop {
-        private List<Product> products;
+        private HashMap<Product> products = new ArrayList<>();
         private double balance;
-
-        public Shop() {
-                products = new ArrayList<>();
-                balance = 0.0;
-        }
 
         public void addProduct(Product product) {
                 products.add(product);
