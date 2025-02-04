@@ -51,4 +51,16 @@ public class Shop {
     public double getBalance() {
         return balance;
     }
+
+    public void setPrice(String productName, double price){
+        boolean trueFalse = true;
+        while (trueFalse) {
+            Product product = products.get(productName);
+            if (price > 0) {
+                product.setPrice(price);
+                trueFalse = false;
+            }
+            System.out.println("Цена не может быть меньше единицы!");
+        }
+    }
 }
