@@ -6,7 +6,7 @@ public class Shop {
     private HashMap<String, Product> products = new HashMap<>();
     private double balance = 0;
 
-    public boolean buyProduct(String productName, int count, double pricing) {
+    public boolean buyProduct(String productName, double pricing, int count) {
         double sum = count * pricing;
         if (sum > balance) return false;
         balance -= sum;
