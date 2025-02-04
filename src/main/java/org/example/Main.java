@@ -30,11 +30,11 @@ public class Main {
         }   qwerty = false;
 
         while (qwerty){
-            if (started[0].equalsIgnoreCase("Закончить") || started[0].equalsIgnoreCase("Завершить"){
+            if (started[0].equalsIgnoreCase("Закончить") || started[0].equalsIgnoreCase("Завершить")){
                 qwerty = false;
             }
 
-            if else  (started[0].equalsIgnoreCase("Купить")) {
+            else if (started[0].equalsIgnoreCase("Купить")) {
 
             }
         }
