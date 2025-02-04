@@ -26,7 +26,7 @@ public class Shop {
 
     public boolean sellProduct(String productName, double price, int count) {
         Product product = products.get(productName);
-        if(product == null) return false;
+        if (product == null) return false;
 
         boolean isSell = product.removeCount(count);
 
@@ -43,7 +43,7 @@ public class Shop {
         } else {
             System.out.println("Список товаров:");
             for (Product product : products.values()) {
-                System.out.println(product.getName() + product.getPrice());
+                System.out.println(product.getName() + product.getPrice() + product.getCount());
             }
         }
     }
@@ -52,7 +52,7 @@ public class Shop {
         return balance;
     }
 
-    public void setPrice(String productName, double price){
+    public void setPrice(String productName, double price) {
         boolean trueFalse = true;
         while (trueFalse) {
             Product product = products.get(productName);
