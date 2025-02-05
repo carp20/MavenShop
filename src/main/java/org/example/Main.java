@@ -37,14 +37,29 @@ public class Main {
                 if (started.length >= 2) {
                     Shop bought = new Shop();
                     if (started.length == 4) {
-                        bought.buyProduct(started[1], Integer.parseInt(started[2]), Integer.parseInt(started[3]));
+                        if (bought.buyProduct(started[1], Integer.parseInt(started[2]), Integer.parseInt(started[3]))){
+                            bought.buyProduct(started[1], Integer.parseInt(started[2]), Integer.parseInt(started[3]));
+                        }
+                        else {
+                            System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance()+").");
+                        }
                     }
                     else if (started.length==3) {
-                        bought.buyProduct(started[1], Integer.parseInt(started[2]), 1);
+                        if(bought.buyProduct(started[1], Integer.parseInt(started[2]), 1)){
+                            bought.buyProduct(started[1], Integer.parseInt(started[2]), 1);
+                        }
+                        else {
+                            System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance()+").");
+                        }
                     }
                     else if (started.length==2){
-                        bought.buyProduct(started[1], 0, 1);
-                    }
+                        if (bought.buyProduct(started[1], 0, 1)){
+                            bought.buyProduct(started[1], 0, 1);
+                        }
+                        else {
+                            System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance()+").");
+                        }}
+
                 }
                 else {
                     System.out.println("Покупка не удалась");

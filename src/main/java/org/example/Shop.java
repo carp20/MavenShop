@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Shop {
     private HashMap<String, Product> products = new HashMap<>();
-    private double balance = 0;
+    private double balance = 100;
 
     public boolean buyProduct(String productName, double pricing, int count) {
         double sum = count * pricing;
