@@ -54,8 +54,8 @@ public class Shop {
 
     public void setPrice(String productName, double price) {
         boolean trueFalse = true;
+        Product product = products.get(productName);
         while (trueFalse) {
-            Product product = products.get(productName);
             if (price > 0) {
                 product.setPrice(price);
                 trueFalse = false;

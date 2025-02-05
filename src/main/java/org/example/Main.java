@@ -43,7 +43,7 @@ public class Main {
                         bought.buyProduct(started[1], Integer.parseInt(started[2]), 1);
                     }
                     else if (started.length==2){
-                        bought.buyProduct(started[1])
+                        bought.buyProduct(started[1], 0, 1);
                     }
                 }
                 else {
