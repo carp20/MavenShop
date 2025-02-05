@@ -25,9 +25,9 @@ public class Main {
         String[] started = start.split(" ");
         boolean qwerty = true;
 
-        if (!started[0].equalsIgnoreCase("Закончить") || !started[0].equalsIgnoreCase("Завершить")){
-            qwerty = true;
-        }   qwerty = false;
+        if (started[0].equalsIgnoreCase("Закончить") || started[0].equalsIgnoreCase("Завершить")){
+            qwerty = false;
+        }
 
         while (qwerty){
             if (started[0].equalsIgnoreCase("Закончить") || started[0].equalsIgnoreCase("Завершить")){
