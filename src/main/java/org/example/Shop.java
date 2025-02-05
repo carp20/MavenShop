@@ -18,8 +18,8 @@ public class Shop {
             return true;
         }
 
-        products.put(productName, new Product(productName, 0, count));
-        System.out.println("Новый продукт создан " + productName + ". Не забудь добавить цену");
+        products.put(productName, new Product(productName, pricing, count));
+//        System.out.println("Новый продукт создан " + productName + ". Не забудь добавить цену");
 
         return true;
     }
