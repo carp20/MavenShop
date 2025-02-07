@@ -20,41 +20,39 @@ public class Main {
                 "'Сохранить' - сохраняет прогресс магазина в файле. {Нету}\n" +
                 "'Загрузить' - загружает прогресс последней игры. {Нету}");
 
-        System.out.print("Выберите действие:");
-        String start = scanner.nextLine();
-        String[] started = start.split(" ");
-        boolean qwerty = true;
 
-        if (started[0].equalsIgnoreCase("Закончить") || started[0].equalsIgnoreCase("Завершить")) {
-            qwerty = false;
-        }
+        boolean isRunning = true;
 
-        while (qwerty) {
-            if (started[0].equalsIgnoreCase("Закончить") || started[0].equalsIgnoreCase("Завершить")) {
-                qwerty = false;
+        while (isRunning) {
+            System.out.print("Выберите действие:");
+            String input = scanner.nextLine();
+            String[] splitInput = input.split(" ");
+
+            if (splitInput[0].equalsIgnoreCase("Закончить") || splitInput[0].equalsIgnoreCase("Завершить")) {
+                isRunning = false;
             }
-            else if (started[0].equalsIgnoreCase("Купить")) {
-                if (started.length >= 2) {
+            else if (splitInput[0].equalsIgnoreCase("Купить")) {
+                if (splitInput.length >= 2) {
                     Shop bought = new Shop();
-                    if (started.length == 4) {
-                        if (bought.buyProduct(started[1], Integer.parseInt(started[2]), Integer.parseInt(started[3]))){
-                            bought.buyProduct(started[1], Integer.parseInt(started[2]), Integer.parseInt(started[3]));
+                    if (splitInput.length == 4) {
+                        if (bought.buyProduct(splitInput[1], Integer.parseInt(splitInput[2]), Integer.parseInt(splitInput[3]))){
+                            bought.buyProduct(splitInput[1], Integer.parseInt(splitInput[2]), Integer.parseInt(splitInput[3]));
                         }
                         else {
                             System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance()+").");
                         }
                     }
-                    else if (started.length==3) {
-                        if(bought.buyProduct(started[1], Integer.parseInt(started[2]), 1)){
-                            bought.buyProduct(started[1], Integer.parseInt(started[2]), 1);
+                    else if (splitInput.length==3) {
+                        if(bought.buyProduct(splitInput[1], Integer.parseInt(splitInput[2]), 1)){
+                            bought.buyProduct(splitInput[1], Integer.parseInt(splitInput[2]), 1);
                         }
                         else {
                             System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance()+").");
                         }
                     }
-                    else if (started.length==2){
-                        if (bought.buyProduct(started[1], 0, 1)){
-                            bought.buyProduct(started[1], 0, 1);
+                    else if (splitInput.length==2){
+                        if (bought.buyProduct(splitInput[1], 0, 1)){
+                            bought.buyProduct(splitInput[1], 0, 1);
                         }
                         else {
                             System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance()+").");

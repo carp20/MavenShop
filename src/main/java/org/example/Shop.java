@@ -6,8 +6,8 @@ public class Shop {
     private HashMap<String, Product> products = new HashMap<>();
     private double balance = 100;
 
-    public boolean buyProduct(String productName, double pricing, int count) {
-        double sum = count * pricing;
+    public boolean buyProduct(String productName, double price, int count) {
+        double sum = count * price;
         if (sum > balance) return false;
         balance -= sum;
 
@@ -18,7 +18,7 @@ public class Shop {
             return true;
         }
 
-        products.put(productName, new Product(productName, pricing, count));
+        products.put(productName, new Product(productName, price, count));
 //        System.out.println("Новый продукт создан " + productName + ". Не забудь добавить цену");
 
         return true;
@@ -52,15 +52,18 @@ public class Shop {
         return balance;
     }
 
-    public void setPrice(String productName, double price) {
+    public boolean setPrice(String productName, double price) {
         boolean trueFalse = true;
         Product product = products.get(productName);
         while (trueFalse) {
             if (price > 0) {
                 product.setPrice(price);
                 trueFalse = false;
+                return true;
             }
             System.out.println("Цена не может быть меньше единицы!");
+            return false;
         }
+        return !trueFalse;
     }
 }
