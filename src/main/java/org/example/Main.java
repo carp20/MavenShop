@@ -1,5 +1,6 @@
 package org.example;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +21,6 @@ public class Main {
                 "'Сохранить' - сохраняет прогресс магазина в файле. {Нету}\n" +
                 "'Загрузить' - загружает прогресс последней игры. {Нету}");
 
-
         boolean isRunning = true;
 
         while (isRunning) {
@@ -34,20 +34,28 @@ public class Main {
                 if (splitInput.length >= 2) {
                     Shop bought = new Shop();
                     if (splitInput.length == 4) {
-                        if (bought.buyProduct(splitInput[1], Integer.parseInt(splitInput[2]), Integer.parseInt(splitInput[3]))) {
-                            bought.buyProduct(splitInput[1], Integer.parseInt(splitInput[2]), Integer.parseInt(splitInput[3]));
-                        } else {
-                            System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance() + ").");
+                        try {
+                            int price = Integer.parseInt(splitInput[2]);
+                            int count = Integer.parseInt(splitInput[3]);
+                            if (bought.buyProduct(splitInput[1], price, count)) {
+                                System.out.println("Покупка успешна!");
+                            } else {
+                                System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance() + ").");
+                            }
+                        } catch (NumberFormatException exception){
+
+                            System.out.println("Вы передали ");
                         }
+
                     } else if (splitInput.length == 3) {
                         if (bought.buyProduct(splitInput[1], Integer.parseInt(splitInput[2]), 1)) {
-                            bought.buyProduct(splitInput[1], Integer.parseInt(splitInput[2]), 1);
+                            System.out.println("Покупка успешна!");
                         } else {
                             System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance() + ").");
                         }
                     } else if (splitInput.length == 2) {
                         if (bought.buyProduct(splitInput[1], 0, 1)) {
-                            bought.buyProduct(splitInput[1], 0, 1);
+                            System.out.println("Покупка успешна!");
                         } else {
                             System.out.println("Недостаточно средств на балансе (" + new Shop().getBalance() + ").");
                         }
