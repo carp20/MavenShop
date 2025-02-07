@@ -19,7 +19,7 @@ public class Shop {
         }
 
         products.put(productName, new Product(productName, price, count));
-//        System.out.println("Новый продукт создан " + productName + ". Не забудь добавить цену");
+        System.out.println("Новый продукт создан " + productName);
 
         return true;
     }
@@ -59,10 +59,8 @@ public class Shop {
             if (price > 0) {
                 product.setPrice(price);
                 trueFalse = false;
-                return true;
             }
             System.out.println("Цена не может быть меньше единицы!");
-            return false;
         }
         return !trueFalse;
     }
