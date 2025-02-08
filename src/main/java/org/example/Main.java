@@ -30,7 +30,9 @@ public class Main {
 
             if (splitInput[0].equalsIgnoreCase("Закончить") || splitInput[0].equalsIgnoreCase("Завершить")) {
                 isRunning = false;
-            } else if (splitInput[0].equalsIgnoreCase("Купить")) {
+            }
+
+            else if (splitInput[0].equalsIgnoreCase("Купить")) {
                 if (splitInput.length >= 2) {
                     Shop bought = new Shop();
                     if (splitInput.length == 4) {
@@ -44,7 +46,7 @@ public class Main {
                             }
                         } catch (NumberFormatException exception){
 
-                            System.out.println("Вы передали ");
+                            System.out.println("Вы передали не тот формат данных (цена или кол-во)");
                         }
 
                     } else if (splitInput.length == 3) {
